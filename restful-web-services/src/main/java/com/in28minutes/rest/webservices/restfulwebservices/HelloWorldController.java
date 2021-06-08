@@ -20,5 +20,7 @@ public class HelloWorldController {
 	@GetMapping(path="/hello-world-bean")
 	public HelloWorldBean helloWorlBean() {
 		return new HelloWorldBean("hello world");
+		
+	
 	}
 }
