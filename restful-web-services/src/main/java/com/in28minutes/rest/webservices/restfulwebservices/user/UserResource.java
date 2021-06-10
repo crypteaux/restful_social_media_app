@@ -1,6 +1,7 @@
 package com.in28minutes.rest.webservices.restfulwebservices.user;
 
 import java.net.URI;
+import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +26,14 @@ public class UserResource {
 		return service.findall();
 	}
 	
-	
 	//Get users/{id}
 	@GetMapping("users/{id}")
 	public User retrieveUser(@PathVariable int id) {
-		return service.findeOne(id);
+		User user = service.findeOne(id);
+		if(user==null) 
+			throw new UserNotFoundException("id-"+ id);
+		
+		return user;
 	}
 	
 	//CREATED
@@ -51,6 +55,4 @@ public class UserResource {
 		return ResponseEntity.created(location).build();
 		
 	}
-	
-
 }
