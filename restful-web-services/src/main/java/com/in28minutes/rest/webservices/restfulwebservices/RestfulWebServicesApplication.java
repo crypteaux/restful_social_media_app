@@ -29,10 +29,4 @@ public class RestfulWebServicesApplication {
 		return localeResolver;
 	}
 	
-	@Bean 
-	public ResourceBundleMessageSource messageSource() {
-		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-		messageSource.setBasename("messages");
-		return messageSource;
-	}
 }
