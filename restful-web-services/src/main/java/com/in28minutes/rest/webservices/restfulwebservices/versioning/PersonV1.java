@@ -5,6 +5,7 @@ public class PersonV1 {
 	private String name;
 
 	public PersonV1() {
+		super();
 	}
 
 	public PersonV1(String name) {
