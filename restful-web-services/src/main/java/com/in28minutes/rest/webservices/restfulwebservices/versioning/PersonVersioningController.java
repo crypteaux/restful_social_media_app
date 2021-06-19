@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PersonVersioningController {
 	
+	
+	//URI API VERSIONING
 	@GetMapping("v1/person")
 	public PersonV1 personV1() {
 		return new PersonV1("Bob Marley");
@@ -40,7 +42,7 @@ public class PersonVersioningController {
 		return new PersonV2(new Name("Bob", "Charlie"));
 	}
 	
-	//Request Header Produces option of API versioning
+	//Mime Type/ Accept Header Produces option of API versioning
 	@GetMapping(value="person/produces", produces="application/vnd.company.app-v1+json")
 	public PersonV1 producesV1() {
 		return new PersonV1("Bob Marley");
